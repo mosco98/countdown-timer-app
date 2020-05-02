@@ -166,9 +166,9 @@ export default class App extends Component {
     const { timePaused, timeStarted, minutes, seconds, timeUp, halfWay, timeRed, timeBlink, minuteInput } = this.state
 
     return (
-      <div className="vh-100 w-100 d-flex flex-column align-items-center justify-content-center">
+      <div className="vh-100 w-100 d-flex flex-column align-items-center justify-content-center p-6">
         <div className="w-100 header d-flex align-items-center justify-content-center">
-          <h2 className="w-100 text-center">COUNTDOWN TIMER APP</h2>
+          <h2 className="w-100 text-center">TIMER APP</h2>
         </div>
         <div className="d-flex flex-column align-items-center justify-content-around timer-ctn p-5">
           <TimeInput
