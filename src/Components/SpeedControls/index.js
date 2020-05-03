@@ -1,4 +1,4 @@
-import '../Assets/css/style.css'
+import '../../Assets/css/style.css'
 
 import React from 'react'
 
@@ -10,8 +10,7 @@ const SpeedControls = ({ timeSpeedHandler, speed }) => {
         onClick={() => {
           timeSpeedHandler(1000)
         }}
-        title="Speed 1x"
-      >
+        title="Speed 1x">
         1X
       </button>
       <button
@@ -19,8 +18,7 @@ const SpeedControls = ({ timeSpeedHandler, speed }) => {
         onClick={() => {
           timeSpeedHandler(750)
         }}
-        title="Speed 1.5x"
-      >
+        title="Speed 1.5x">
         1.5X
       </button>
       <button
@@ -28,8 +26,7 @@ const SpeedControls = ({ timeSpeedHandler, speed }) => {
         onClick={() => {
           timeSpeedHandler(300)
         }}
-        title="Speed 2x"
-      >
+        title="Speed 2x">
         2X
       </button>
     </div>

@@ -8,7 +8,7 @@ const TimeInput = ({
   timeUp,
   startNewHandler,
   minuteInputHandler,
-  minuteInput,
+  minuteInput
 }) => {
   return (
     <div className="d-flex align-items-center justify-content-center time-input-ctn ml-auto mr-auto w-50">
@@ -40,8 +40,7 @@ const TimeInput = ({
             <button
               className={minuteInput ? 'btn btn-sm btn-success' : 'btn btn-sm disabled'}
               onClick={minuteInput ? startTimeHandler : null}
-              title={minuteInput && 'Start timer'}
-            >
+              title={minuteInput && 'Start timer'}>
               Start
             </button>
           )}

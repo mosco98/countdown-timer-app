@@ -19,7 +19,7 @@ export default class App extends Component {
       timeUp: false,
       halfWay: false,
       timeRed: false,
-      timeBlink: false,
+      timeBlink: false
     }
 
     this.counter = 0
@@ -40,7 +40,7 @@ export default class App extends Component {
       halfWay: false,
       timeRed: false,
       timeBlink: false,
-      minuteInput: null,
+      minuteInput: null
     })
     this.counter = 0
     this.speed = 1000
@@ -51,68 +51,77 @@ export default class App extends Component {
     const { minuteInput } = this.state
     if (resume !== 'resume') {
       this.setState({
-        minutes: minuteInput,
+        minutes: minuteInput
       })
-      const halfTime = 30 * minuteInput
+      const halfTime = 30 * minuteInput // convert to seconds and half
       this.halfTimeMinutes = Math.floor(halfTime / 60)
       this.halfTimeSeconds = halfTime % 60
-      const audioPlayer = document.createElement('audio')
-      audioPlayer.src = audio
-      audioPlayer.play()
     }
     this.setState({
       timeStarted: true,
       timePaused: false,
-      timeUp: false,
+      timeUp: false
     })
+
+    // SetInterval function
     this.timeInterval = setInterval(() => {
+      // Increment the global counter variable
       this.counter++
 
+      // set state of seconds
       this.setState({
-        seconds: 60 - this.counter,
+        seconds: 60 - this.counter
       })
 
+      // reduce the minutes by 1 as soon as the timer starts
       if (this.counter === 1) {
         this.setState({
-          minutes: this.state.minutes - 1,
+          minutes: this.state.minutes - 1
         })
       }
 
+      // set the counter to 0 as soon as it reaches 60
       if (this.counter === 60) {
         this.counter = 0
       }
 
+      // checking if time remains 20 seconds or less
       if (this.state.minutes === 0 && this.state.seconds <= 20) {
         this.setState({
-          timeRed: true,
-        })
-      }
-      if (this.state.minutes === 0 && this.state.seconds <= 10) {
-        this.setState({
-          timeBlink: true,
-        })
-      }
-      if (this.state.minutes === this.halfTimeMinutes && this.state.seconds === this.halfTimeSeconds - 1) {
-        this.setState({
-          halfWay: true,
+          timeRed: true
         })
       }
 
+      // checking if time remains 10 seconds or less
+      if (this.state.minutes === 0 && this.state.seconds <= 10) {
+        this.setState({
+          timeBlink: true
+        })
+      }
+
+      // checking if the time inputed by the user as passed half
+      if (this.state.minutes === this.halfTimeMinutes && this.state.seconds === this.halfTimeSeconds) {
+        this.setState({
+          halfWay: true
+        })
+      }
+
+      // stopping the timer when time is up
       if (this.state.minutes === 0 && this.state.seconds === 0) {
+        // play sound
         const audioPlayer = document.createElement('audio')
         audioPlayer.src = audio
         audioPlayer.play()
-        if (audioPlayer.play()) {
-          clearInterval(this.timeInterval)
-          this.setState({
-            timeStarted: false,
-            timeUp: true,
-            timeRed: false,
-            timeBlink: false,
-            halfWay: false,
-            minuteInput: null,
-          })
-        }
+
+        clearInterval(this.timeInterval)
+        this.setState({
+          timeStarted: false,
+          timeUp: true,
+          timeRed: false,
+          timeBlink: false,
+          halfWay: false,
+          minuteInput: null
+        })
       }
     }, this.speed)
   }
@@ -121,7 +130,7 @@ export default class App extends Component {
   pauseTimeHandler = () => {
     clearInterval(this.timeInterval)
     this.setState({
-      timePaused: true,
+      timePaused: true
     })
   }
 
@@ -138,7 +147,7 @@ export default class App extends Component {
   // start new counter function
   startNewHandler = () => {
     this.setState({
-      timeUp: false,
+      timeUp: false
     })
     this.speed = 1000
   }
@@ -146,19 +155,15 @@ export default class App extends Component {
   // Input function
   minuteInputHandler = (e) => {
     const value = e.target.value
-    if (value === '') {
+    if (value === '' || value <= 0 || value % 1 !== 0) {
       return this.setState({
-        minuteInput: null,
+        minuteInput: null
       })
     }
-    if (value <= 0) {
-      return this.setState({
-        minuteInput: null,
-      })
-    }
+
     if (value > 0) {
       return this.setState({
-        minuteInput: +value,
+        minuteInput: +value
       })
     }
   }
@@ -166,38 +171,40 @@ export default class App extends Component {
     const { timePaused, timeStarted, minutes, seconds, timeUp, halfWay, timeRed, timeBlink, minuteInput } = this.state
 
     return (
-      <div className="vh-100 w-100 d-flex flex-column align-items-center justify-content-center p-6">
-        <div className="w-100 header d-flex align-items-center justify-content-center">
-          <h2 className="w-100 text-center">TIMER APP</h2>
+      <div className="vh-100 w-100 d-flex flex-column align-items-center justify-content-between">
+        <div className="w-100 title text-center mt-3">
+          <h2>TIMER APP</h2>
         </div>
-        <div className="d-flex flex-column align-items-center justify-content-around timer-ctn p-5">
-          <TimeInput
-            timePaused={timePaused}
-            timeStarted={timeStarted}
-            startTimeHandler={this.startTimeHandler}
-            timeResetHandler={this.timeResetHandler}
-            timeUp={timeUp}
-            startNewHandler={this.startNewHandler}
-            minuteInputHandler={this.minuteInputHandler}
-            minuteInput={minuteInput}
-          />
-          <div className="w-100 mt-3 text-center">
-            {timeUp && <span className="font-italic text">Time's up!</span>}
-            {halfWay && <span className="font-italic text">More than halfway there!</span>}
+        <section className="h-75">
+          <div className="d-flex flex-column align-items-center justify-content-around timer-ctn p-5">
+            <TimeInput
+              timePaused={timePaused}
+              timeStarted={timeStarted}
+              startTimeHandler={this.startTimeHandler}
+              timeResetHandler={this.timeResetHandler}
+              timeUp={timeUp}
+              startNewHandler={this.startNewHandler}
+              minuteInputHandler={this.minuteInputHandler}
+              minuteInput={minuteInput}
+            />
+            <div className="w-100 mt-3 text-center">
+              {timeUp && <span className="font-italic text">Time's up!</span>}
+              {halfWay && <span className="font-italic text">More than halfway there!</span>}
+            </div>
+            <Time
+              timePaused={timePaused}
+              timeStarted={timeStarted}
+              startTimeHandler={this.startTimeHandler}
+              minutes={minutes}
+              seconds={seconds}
+              pauseTimeHandler={this.pauseTimeHandler}
+              timeUp={timeUp}
+              timeRed={timeRed}
+              timeBlink={timeBlink}
+            />
+            <SpeedControls timeSpeedHandler={this.timeSpeedHandler} speed={this.speed} />
           </div>
-          <Time
-            timePaused={timePaused}
-            timeStarted={timeStarted}
-            startTimeHandler={this.startTimeHandler}
-            minutes={minutes}
-            seconds={seconds}
-            pauseTimeHandler={this.pauseTimeHandler}
-            timeUp={timeUp}
-            timeRed={timeRed}
-            timeBlink={timeBlink}
-          />
-          <SpeedControls timeSpeedHandler={this.timeSpeedHandler} speed={this.speed} />
-        </div>
+        </section>
       </div>
     )
   }

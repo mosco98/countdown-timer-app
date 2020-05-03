@@ -1,4 +1,4 @@
-import '../Assets/css/style.css'
+import '../../Assets/css/style.css'
 
 import classNames from 'classnames'
 import React from 'react'
@@ -12,7 +12,7 @@ const Time = ({
   seconds,
   pauseTimeHandler,
   timeRed,
-  timeBlink,
+  timeBlink
 }) => {
   return (
     <div className="d-flex align-items-center justify-content-center">
@@ -20,9 +20,8 @@ const Time = ({
         <h1
           className={classNames('time ', {
             'time red-text': timeRed,
-            'time blinking': timeBlink,
-          })}
-        >
+            'time blinking': timeBlink
+          })}>
           {minutes < 10 ? '0' + minutes : minutes}:{seconds < 10 ? '0' + seconds : seconds}
         </h1>
         {timeStarted ? (
@@ -30,7 +29,7 @@ const Time = ({
             {timePaused ? (
               <Play
                 className={classNames({
-                  'red-text': timeRed,
+                  'red-text': timeRed
                 })}
                 size={45}
                 style={{ cursor: 'pointer' }}
@@ -40,7 +39,7 @@ const Time = ({
             ) : (
               <Pause
                 className={classNames({
-                  'red-text': timeRed,
+                  'red-text': timeRed
                 })}
                 size={45}
                 style={{ cursor: 'pointer' }}

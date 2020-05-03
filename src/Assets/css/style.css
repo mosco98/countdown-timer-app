@@ -1,21 +1,14 @@
 body {
   background: #edeeee;
-  position: fixed;
   width: 100%;
+  /* overflow-y: hidden; */
 }
 
-.header {
-  position: fixed;
-  top: 0;
-  margin-top: 2rem;
-  padding: 5px;
-  z-index: 1;
-}
 .timer-ctn {
-  width: 500px;
-  height: 50%;
+  min-width: 200px;
+  height: 65%;
   background: #edeeee;
-  z-index: 100000;
+  z-index: 1;
 }
 .text {
   font-size: 1.2rem;
