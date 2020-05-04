@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons reset button renders correctly 1`] = `
+<div
+  className="d-flex align-items-center justify-content-center time-input-ctn ml-auto mr-auto w-50"
+>
+  <button
+    className="btn btn-danger reset-btn"
+    data-testid="reset-btn"
+    title="Reset timer"
+  >
+    Reset
+  </button>
+</div>
+`;
+
+exports[`Buttons start button renders correctly 1`] = `
+<div
+  className="d-flex align-items-center justify-content-center time-input-ctn ml-auto mr-auto w-50"
+>
+  <span
+    className="text-black-50 font-weight-bold"
+  >
+    Countdown:
+  </span>
+  <input
+    className="form-control time-input ml-4 mr-4"
+    data-testid="minute-input"
+    min="0"
+    name="minuteInput"
+    placeholder="(Min)"
+    type="number"
+  />
+  <button
+    className="btn btn-sm disabled start-btn"
+    data-testid="start-btn"
+    onClick={null}
+  >
+    Start
+  </button>
+</div>
+`;
+
+exports[`Buttons start-new-counter button renders correctly 1`] = `
+<div
+  className="d-flex align-items-center justify-content-center time-input-ctn ml-auto mr-auto w-50"
+>
+  <button
+    className="btn btn-block btn-success"
+    data-testid="start-new-btn"
+    title="Start new countdown"
+  >
+    Start new countdown
+  </button>
+</div>
+`;

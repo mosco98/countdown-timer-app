@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering pause and resume time button rendering pause button 1`] = `
+<div
+  className="d-flex align-items-center justify-content-center"
+>
+  <div
+    className="container w-100 d-flex align-items-center justify-content-around time-ctn"
+  >
+    <h1
+      className="time ml-2"
+    >
+      :
+    </h1>
+    <div
+      className="d-flex align-items-center justify-content-center ml-2 mt-auto mb-auto"
+    >
+      <svg
+        className=""
+        data-testid="pause-btn"
+        fill="none"
+        height={45}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
+        title="Pause"
+        viewBox="0 0 24 24"
+        width={45}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="16"
+          width="4"
+          x="6"
+          y="4"
+        />
+        <rect
+          height="16"
+          width="4"
+          x="14"
+          y="4"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Rendering pause and resume time button rendering resume button 1`] = `
+<div
+  className="d-flex align-items-center justify-content-center"
+>
+  <div
+    className="container w-100 d-flex align-items-center justify-content-around time-ctn"
+  >
+    <h1
+      className="time ml-2"
+    >
+      :
+    </h1>
+    <div
+      className="d-flex align-items-center justify-content-center ml-2 mt-auto mb-auto"
+    >
+      <svg
+        className=""
+        data-testid="resume-btn"
+        fill="none"
+        height={45}
+        onClick={[Function]}
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
+        title="Resume"
+        viewBox="0 0 24 24"
+        width={45}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polygon
+          points="5 3 19 12 5 21 5 3"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;

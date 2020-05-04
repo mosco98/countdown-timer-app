@@ -1,0 +1,90 @@
+body {
+  background: #edeeee;
+  width: 100%;
+  position: fixed
+  /* overflow-y: hidden; */
+}
+
+.timer-ctn {
+  min-width: 200px;
+  height: 65%;
+  background: #edeeee;
+  z-index: 1;
+}
+.text {
+  font-size: 1.2rem;
+}
+.time {
+  font-size: 95px;
+  height: 150px;
+  margin-top: 35px;
+  font-weight: 500;
+  user-select: none;
+}
+
+.time-input-ctn {
+  min-width: 100%;
+  height: 15%;
+  min-height: 30px;
+  background: #edeeee;
+}
+.time-input {
+  width: 120px;
+}
+
+.speed-control-btn-ctn {
+  min-width: 250px;
+}
+
+.speed-control-btn {
+  width: 55px;
+  height: 35px;
+  font-size: 12px;
+  outline: 0;
+  border: 1px black solid;
+  background: transparent;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.speed-control-btn:focus {
+  outline: none;
+}
+
+.speed-control-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+.active {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+.blinking {
+  animation: blinkingText 1s infinite;
+}
+@keyframes blinkingText {
+  0% {
+    color: #ff1744;
+  }
+  49% {
+    color: #ff1744;
+  }
+  60% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: #ff1744;
+  }
+}
+
+.red-text {
+  color: #ff1744;
+}
