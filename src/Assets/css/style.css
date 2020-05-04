@@ -1,6 +1,7 @@
 body {
   background: #edeeee;
   width: 100%;
+  position: fixed
   /* overflow-y: hidden; */
 }
 

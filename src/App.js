@@ -29,23 +29,6 @@ export default class App extends Component {
     this.halfTimeSeconds = 0
   }
 
-  // Resetting time function
-  timeResetHandler = () => {
-    this.setState({
-      timeStarted: false,
-      timePaused: false,
-      minutes: 0,
-      seconds: 0,
-      timeUp: false,
-      halfWay: false,
-      timeRed: false,
-      timeBlink: false,
-      minuteInput: null
-    })
-    this.counter = 0
-    this.speed = 1000
-  }
-
   // Start time function
   startTimeHandler = (resume) => {
     const { minuteInput } = this.state
@@ -134,6 +117,23 @@ export default class App extends Component {
     })
   }
 
+  // Resetting time function
+  timeResetHandler = () => {
+    this.setState({
+      timeStarted: false,
+      timePaused: false,
+      minutes: 0,
+      seconds: 0,
+      timeUp: false,
+      halfWay: false,
+      timeRed: false,
+      timeBlink: false,
+      minuteInput: null
+    })
+    this.counter = 0
+    this.speed = 1000
+  }
+
   // time speed function
   timeSpeedHandler = (speed) => {
     const { timeStarted } = this.state
@@ -167,6 +167,7 @@ export default class App extends Component {
       })
     }
   }
+
   render() {
     const { timePaused, timeStarted, minutes, seconds, timeUp, halfWay, timeRed, timeBlink, minuteInput } = this.state
 
@@ -187,6 +188,7 @@ export default class App extends Component {
               minuteInputHandler={this.minuteInputHandler}
               minuteInput={minuteInput}
             />
+            <br />
             <div className="w-100 mt-3 text-center">
               {timeUp && <span className="font-italic text">Time's up!</span>}
               {halfWay && <span className="font-italic text">More than halfway there!</span>}
@@ -202,6 +204,7 @@ export default class App extends Component {
               timeRed={timeRed}
               timeBlink={timeBlink}
             />
+            {/* <br /> */}
             <SpeedControls timeSpeedHandler={this.timeSpeedHandler} speed={this.speed} />
           </div>
         </section>

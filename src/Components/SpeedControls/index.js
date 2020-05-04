@@ -10,7 +10,8 @@ const SpeedControls = ({ timeSpeedHandler, speed }) => {
         onClick={() => {
           timeSpeedHandler(1000)
         }}
-        title="Speed 1x">
+        title="Speed 1x"
+        data-testid="speedx1">
         1X
       </button>
       <button
@@ -18,7 +19,8 @@ const SpeedControls = ({ timeSpeedHandler, speed }) => {
         onClick={() => {
           timeSpeedHandler(750)
         }}
-        title="Speed 1.5x">
+        title="Speed 1.5x"
+        data-testid="speedx1.5">
         1.5X
       </button>
       <button
@@ -26,7 +28,8 @@ const SpeedControls = ({ timeSpeedHandler, speed }) => {
         onClick={() => {
           timeSpeedHandler(300)
         }}
-        title="Speed 2x">
+        title="Speed 2x"
+        data-testid="speedx2">
         2X
       </button>
     </div>

@@ -18,9 +18,9 @@ const Time = ({
     <div className="d-flex align-items-center justify-content-center">
       <div className="container w-100 d-flex align-items-center justify-content-around time-ctn">
         <h1
-          className={classNames('time ', {
-            'time red-text': timeRed,
-            'time blinking': timeBlink
+          className={classNames('time ml-2', {
+            'time red-text ml-2': timeRed,
+            'time blinking ml-2': timeBlink
           })}>
           {minutes < 10 ? '0' + minutes : minutes}:{seconds < 10 ? '0' + seconds : seconds}
         </h1>
@@ -35,6 +35,7 @@ const Time = ({
                 style={{ cursor: 'pointer' }}
                 onClick={() => startTimeHandler('resume')}
                 title="Resume"
+                data-testid="resume-btn"
               />
             ) : (
               <Pause
@@ -45,6 +46,7 @@ const Time = ({
                 style={{ cursor: 'pointer' }}
                 onClick={pauseTimeHandler}
                 title="Pause"
+                data-testid="pause-btn"
               />
             )}
           </div>
