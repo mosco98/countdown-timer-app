@@ -14,7 +14,7 @@ const TimeInput = ({
     <div className="d-flex align-items-center justify-content-center time-input-ctn ml-auto mr-auto w-50">
       {timeUp ? (
         <button
-          className="btn btn-block btn-success"
+          className="btn btn-sm btn-success"
           onClick={startNewHandler}
           title="Start new countdown"
           data-testid="start-new-btn">
@@ -38,7 +38,7 @@ const TimeInput = ({
           )}
           {timePaused && (
             <button
-              className="btn btn-danger reset-btn"
+              className="btn btn-sm btn-danger reset-btn"
               onClick={timeResetHandler}
               title="Reset timer"
               data-testid="reset-btn">
