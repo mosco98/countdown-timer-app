@@ -4,7 +4,7 @@ import React from 'react'
 
 const SpeedControls = ({ timeSpeedHandler, speed }) => {
   return (
-    <div className="container w-50 speed-control-btn-ctn d-flex align-items-center justify-content-around p-3">
+    <div className="container w-25 speed-control-btn-ctn d-flex align-items-center justify-content-around p-3">
       <button
         className={speed === 1000 ? 'speed-control-btn active' : 'speed-control-btn'}
         onClick={() => {

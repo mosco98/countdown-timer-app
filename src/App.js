@@ -82,7 +82,7 @@ export default class App extends Component {
         })
       }
 
-      // checking if the time inputed by the user as passed half
+      // checking if the time inputed by the user has passed half
       if (this.state.minutes === this.halfTimeMinutes && this.state.seconds === this.halfTimeSeconds) {
         this.setState({
           halfWay: true
@@ -176,7 +176,7 @@ export default class App extends Component {
         <div className="w-100 title text-center mt-3">
           <h2>TIMER APP</h2>
         </div>
-        <section className="h-75">
+        <section className="h-75 container">
           <div className="d-flex flex-column align-items-center justify-content-around timer-ctn p-5">
             <TimeInput
               timePaused={timePaused}
@@ -189,7 +189,7 @@ export default class App extends Component {
               minuteInput={minuteInput}
             />
             <br />
-            <div className="w-100 mt-3 text-center">
+            <div className="w-100 text-center alert-text">
               {timeUp && <span className="font-italic text">Time's up!</span>}
               {halfWay && <span className="font-italic text">More than halfway there!</span>}
             </div>
@@ -204,7 +204,7 @@ export default class App extends Component {
               timeRed={timeRed}
               timeBlink={timeBlink}
             />
-            {/* <br /> */}
+            <br />
             <SpeedControls timeSpeedHandler={this.timeSpeedHandler} speed={this.speed} />
           </div>
         </section>
